@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<script type="text/javascript" src="http://www.daixiaorui.com/Public/js/jquery.min.js"></script>
+<style media="screen">
+  body
+  {
+    height:800px;
+    margin:0;
+  }
+  @font-face{
+    font-family:Halloween;
+    src:url('COULURES-1.ttf');
+  }
+  .header{
+    font-family:Halloween;
+    text-align: center;
+    font-size:100px;
+  }
+  .background{
+    margin:auto;
+    height:500px;
+    width:600px;
+  }
+  .content{
+    height:300px;
+    width:250px;
+    margin-top:50px;
+    margin: auto;
+    -webkit-animation: move 2s infinite;
+    -moz-animation: move 2s infinite;
+    -o-animation: move 2s infinite;
+    animation: move 2s infinite;
+  }
+  @keyframes move {
+    0%{
+      margin-top:50px;
+    }
+    50%{
+      margin-top: 70px;
+    }
+    100%
+    {
+      margin-top: 50px;
+    }
+  }
+  .ghost{
+    height:250px;
+    width:201px;
+    margin:auto;
+    border:10px solid #A6ACAF  ;
+    border-radius:150px 150px 0 0;
+    border-bottom:0;
+    position: relative;
+  }
+  .eyes{
+    width:30px;
+    height:30px;
+    border-radius: 50%;
+    background-color:#A6ACAF;
+    margin-top:60px;
+    margin-left:60px;
+    display: inline-block;
+  }
+.hand{
+  width:50px;
+  height:30px;
+  border:10px solid #A6ACAF;
+  display: inline-block;
+  border-radius:0 50% 50% 0;
+  border-left: 0;
+  position: absolute;
+  left:50px;
+  top: 45%;
+  background-color: white;
+  z-index: 2;
+}
+.lamphand{
+  width:20px;
+  position: absolute;
+  top:130px;
+  left:101px;
+
+  border:3px solid teal;
+  background-color: teal;
+  display: inline-block;
+  z-index: -1;
+}
+.lamphand2{
+  width:30px;
+  height:6px;
+  position:absolute;
+  top:132px;
+  left:126px;
+  border:2px solid teal;
+  border-left:none;
+  border-bottom: none;
+  display: inline-block;
+}
+.lamphead
+{
+  width:16px;
+  border-radius:8px 8px 0 0;
+  border:2px solid teal;
+  height:8px;
+  position: absolute;
+  display: inline-block;
+  top:140px;
+  left:148px;
+ }
+ .lamp1{
+   width:50px;
+   border:2px solid teal;
+   background-color: teal;
+   position: absolute;
+   display: inline-block;
+   top:151px;
+   left:130px;
+ }
+ .lampleft{
+   width:10px;
+   height:40px;
+   border-radius: 40px 0 0 40px;
+   border:2px solid teal;
+   border-right:none;
+   position: absolute;
+   display: inline-block;
+   top:153px;
+   left:140px;
+   z-index: 2;
+ }
+ .lampright{
+   width:10px;
+   height:40px;
+   border-radius: 40px 0 0 40px;
+   border:2px solid teal;
+   border-right:none;
+   position: absolute;
+   display: inline-block;
+   top:153px;
+   left:165px;
+   z-index: 2;
+   transform: rotate(180deg);
+ }
+ .lampbottom
+ {
+   width:50px;
+   background-color: teal;
+   border:2px solid teal;
+   position: absolute;
+   display: inline-block;
+   top:195px;
+   left:130px;
+   z-index:4;
+ }
+ .light{
+   width:20px;
+   height:20px;
+   border-radius:50% 50% 50% 50%;
+   background-color: #03A9F4;
+    opacity: 0.5;
+   box-shadow:0 0 5px 5px rgb(129, 212, 250,.5);
+     position: absolute;
+     left:148px;
+     top:175px;
+     z-index: 3;
+     -webkit-animation: breath 2s infinite;
+     -moz-animation: breath 2s infinite;
+     -o-animation: breath 2s infinite;
+     animation:breath 2s infinite;
+ }
+ @keyframes breath {
+   0%{
+     box-shadow:0 0 5px 15px rgb(129, 212, 250);
+   }
+   50%{
+     box-shadow:0 0 5px 50px rgb(129, 212, 250,0.5);
+   }
+   100%{
+     box-shadow:0 0 5px 15px rgb(129, 212, 250);
+   }
+ }
+.foot {
+  width: 20px;
+  height: 40px;
+  position: absolute;
+  bottom: -30px;
+  border-bottom: 10px solid #A6ACAF;
+  border-left: 10px solid #A6ACAF;
+  border-right: 10px solid #A6ACAF;
+  left: -10px;
+  border-radius: 0 0 50% 50%;
+  z-index: 1;
+}
+
+.foot2 {
+  width: 20px;
+  height: 40px;
+  position: absolute;
+  bottom: -5px;
+  border-top: 10px solid #A6ACAF;
+  border-left: 10px solid #A6ACAF;
+  border-right: 10px solid #A6ACAF;
+  left: 21px;
+  border-radius: 50% 50% 0 0;
+  z-index: 1;
+}
+
+.foot3 {
+  width: 19px;
+  height: 40px;
+  position: absolute;
+  bottom: -30px;
+  border-bottom: 10px solid #A6ACAF;
+  border-left: 10px solid #A6ACAF;
+  border-right: 10px solid #A6ACAF;
+  left: 51px;
+  border-radius: 0 0 50% 50%;
+  z-index: 1;
+}
+
+.foot4 {
+  width: 20px;
+  height: 40px;
+  position: absolute;
+  bottom: -5px;
+  border-top: 10px solid #A6ACAF;
+  border-left: 10px solid #A6ACAF;
+  border-right: 10px solid #A6ACAF;
+  left: 80px;
+border-radius: 50% 50% 0 0;
+z-index: 1;
+}
+
+.foot5 {
+  width: 19px;
+  height: 40px;
+  position: absolute;
+  bottom: -30px;
+  border-bottom: 10px solid #A6ACAF;
+  border-left: 10px solid #A6ACAF;
+  border-right: 10px solid #A6ACAF;
+  left: 111px;
+  border-radius: 0 0 50% 50%;
+  z-index: 1;
+}
+
+.foot6 {
+  width: 20px;
+  height: 40px;
+  position: absolute;
+  bottom: -5px;
+  border-top: 10px solid #A6ACAF;
+  border-left: 10px solid #A6ACAF;
+  border-right: 10px solid #A6ACAF;
+  left: 140px;
+  border-radius: 50% 50% 0 0;
+  z-index: 1;
+}
+
+.foot7 {
+  width: 20px;
+  height: 40px;
+  position: absolute;
+  bottom: -30px;
+  border-bottom: 10px solid #A6ACAF;
+  border-left: 10px solid #A6ACAF;
+  border-right: 10px solid #A6ACAF;
+  left: 171px;
+  border-radius: 0 0 50% 50%;
+  z-index: 1;
+}
+.shadow{
+  width: 150px;
+  height: 20px;
+  background-color: rgba(20, 20, 20, 0.2);
+  border-radius: 50%;
+  margin-left: auto;
+  margin-right: auto;
+  -webkit-animation: shadow 2s infinite;
+  -moz-animation: shadow 2s infinite;
+  -o-animation: shadow 2s infinite;
+  animation: shadow 2s infinite;
+}
+@keyframes shadow {
+  0%{
+    margin-top:20px;
+    width:150px;
+    height:20px;
+
+  }
+  50%
+  {
+    margin-top:5px;
+    width:160px;
+    height:20px;
+
+  }
+  100%
+  {
+    margin-top:20px;
+    width:150px;
+    height:20px;
+
+
+  }
+}
+#shy1
+{
+  width:40px;
+  height:20px;
+  border-radius: 50%;
+  position: absolute;
+  top:100px;
+  left:55px;
+}
+#shy2
+{
+  width:40px;
+  height:20px;
+  border-radius: 50%;
+  position: absolute;
+  top:100px;
+  left:150px;
+}
+.turnred{
+  background-color: #F48FB1    ;
+  position: absolute;
+
+  -webkit-animation: turn 2s ;
+  -moz-animation: turn  2s ;
+  -o-animation: turn 2s ;
+  animation: turn 2s ;
+}
+@keyframes turn {
+0%{
+  background-color: white;
+}
+100%
+{
+  background-color: #F48FB1    ;
+}
+}
+.eye-top
+{
+  width:30px;
+  height:15px;
+  border-radius:15px 15px 0 0;
+  position: absolute;
+  top:45px;
+  border-top:none;
+  background-color:white;
+  -webkit-animation: winktop 5s infinite;
+  -moz-animation: winktop  5s infinite;
+  -o-animation: winktop 5s infinite;
+  animation: winktop 5s infinite;
+
+}
+@keyframes winktop {
+  0%{
+    top:45px;
+
+  }
+  50%{
+    top:45px;
+  }
+  70%
+  {
+    top:45px;
+  }
+  80%{
+    top:60px;
+  }
+  100%
+  {
+    top:45px;
+  }
+}
+.eye-bottom
+{
+  width:30px;
+  height:15px;
+  border-radius:0 0 15px 15px;
+  position: absolute;
+  top:90px;
+  border-top:none;
+  background-color:white;
+  -webkit-animation: winkbottom 5s infinite;
+  -moz-animation: winkbottom  5s infinite;
+  -o-animation: winkbottom 5s infinite;
+  animation: winkbottom 5s infinite;
+}
+@keyframes winkbottom {
+  0%{
+    top:90px;
+
+  }
+  50%{
+    top:90px;
+  }
+  70%
+  {
+    top:90px;
+  }
+  80%{
+    top:75px;
+  }
+  100%
+  {
+    top:90px;
+  }
+}
+</style>
+</head>
+<body>
+  <div class="header">
+    Happy Holloween
+  </div>
+  <div class='background'>
+  	<div id="g" class='content'>
+  		<div  class="ghost">
+  			<div class="eyes">
+          <div class="eye-top"></div>
+          <div class="eye-bottom"></div>
+        </div>
+
+  			<div class="eyes">
+          <div class="eye-top"></div>
+          <div class="eye-bottom"></div>
+        </div>
+        <div id="shy1"></div>
+        <div id="shy2"></div>
+  			<div class='hand'></div>
+        <div class="lamphand"></div>
+        <div class="lamphand2"></div>
+        <div class="lamphead"></div>
+        <div class="lamp1"></div>
+
+        <div class="lampleft"></div>
+        <div class="lampright"></div>
+        <div class="lampbottom"></div>
+        <div class="light"></div>
+  			<div class='foot'></div>
+  			<div class='foot2'></div>
+  			<div class='foot3'></div>
+  			<div class='foot4'></div>
+  			<div class='foot5'></div>
+  			<div class='foot6'></div>
+  			<div class='foot7'></div>
+  		</div>
+  	</div>
+  	<div class="shadow"></div>
+  </div>
+</body>
+<script>
+$('#g').mouseover(function(){
+  $('#shy1').addClass('turnred');
+  $('#shy2').addClass('turnred');
+})
+$('#g').mouseout(function(){
+    $('#shy1').removeClass('turnred');
+  $('#shy2').removeClass('turnred');
+})
+</script>
+</html>
